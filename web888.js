@@ -15,14 +15,14 @@ function updateMarkers() {
   if (map.getZoom() < 2) return;
 
   receiversData.forEach(device => {
-    // GPS est une string sous forme "(lat, lon)"
+
     const gpsMatch = device.gps.match(/\(([-\d.]+),\s*([-\d.]+)\)/);
     if (!gpsMatch) return;
 
     const lat = parseFloat(gpsMatch[1]);
     const lon = parseFloat(gpsMatch[2]);
 
-    const iconUrl = 'http://web-888.psokotka.com:8074/gfx/web-888.51x60.png';
+    const iconUrl = 'images/web-888-51x60.png';
 
     const customIcon = L.icon({
       iconUrl,
