@@ -20,11 +20,11 @@ function updateMarkers() {
 
     const [lat, lon] = latlon;
 
-    const iconUrl = 'https://www.hyperplane.org/wsdr/imgs/amateur_radio_sym.svg';
+    const iconUrl = 'https://secure.gravatar.com/avatar/b3a433ed0710b05e0b66bb27496985f363eb52b92fdd9e28227660ae7fe8ed23?s=125&d=mm&r=g';
 
     const customIcon = L.icon({
       iconUrl,
-      iconSize: [32, 64],
+      iconSize: [32, 44],
       iconAnchor: [16, 32],
       popupAnchor: [0, -32],
     });
