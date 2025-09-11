@@ -1,0 +1,7 @@
+#map {
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    position: absolute; /* S'assure qu'il couvre tout */
+    top: 0;
+    left: 0;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="leaflet.css">
+    <link rel="stylesheet" href="style.css"> <!-- Fichier CSS externe -->
+    <style>
+        #menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map" style="z-index: 3;"></div>
+
+    <!-- JS -->
+    <script src="leaflet.js"></script>
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+    <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
+    <script src="https://unpkg.com/satellite.js/dist/satellite.min.js"></script>
+    <script>
+        L.tileLayer.provider('Stadia.StamenWatercolor').addTo(map);
+    </script>
+    <script src="Leaflet.LocationShare.js"></script>
+    <script src="L.timezones.js"></script>
+    <script src="leaflet-field.js"></script>
+    <script src="leafbase.js"></script>
+    <script src="openwebrx.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALISDR+ Map</title>
+    <meta name="description" content="ALISDR+ Map - A map for the ALISDR+ project.">
+    <meta name="keywords" content="ALISDR+, Map, Leaflet, JavaScript">
+    <meta name="author" content="Discode Studio, Signabroam">
+    <meta name="theme-color" content="#00FF00">
+    <meta name="og:title" content="ALISDR+ Map">
+    <meta name="og:description" content="ALISDR+ Map - A map for the ALISDR+ project.">
+    <meta name="og:image" content="https://i.postimg.cc/NFsWQmm9/Capture-d-cran-2025-03-30-204127.png">
+    <meta name="og:url" content="https://signabroam.github.io/radio.alien/map/map.html">
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="https://i.postimg.cc/NFsWQmm9/Capture-d-cran-2025-03-30-204127.png">
+    <meta name="twitter:title" content="ALISDR+ Map">
+    <meta name="twitter:description" content="ALISDR+ Map - A map for the ALISDR+ project.">
+    <meta name="twitter:image" content="https://i.postimg.cc/NFsWQmm9/Capture-d-cran-2025-03-30-204127.png">
+    <meta name="twitter:url" content="https://signabroam.github.io/radio.alien/map/map.html">
+    <meta name="twitter:site" content="@MirossOffYT">
+    <meta name="twitter:creator" content="@MirossOffYT">
+    <link rel="icon" href=".\images\alien.png" type="image/png">
+    <link rel="apple-touch-icon" href=".\images\alien.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="leaflet.css">
+    <link rel="stylesheet" href="style.css"> <!-- Fichier CSS externe -->
+    <style>
+        #menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map" style="z-index: 3;"></div>
+
+    <!-- JS -->
+    <script src="leaflet.js"></script>
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+    <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
+    <script src="https://unpkg.com/satellite.js/dist/satellite.min.js"></script>
+    <script>
+        L.tileLayer.provider('Stadia.StamenWatercolor').addTo(map);
+    </script>
+    <script src="Leaflet.LocationShare.js"></script>
+    <script src="L.timezones.js"></script>
+    <script src="script.js"></script> <!-- Fichier JS externe -->
+    <script src="leaflet-field.js"></script>
+    <script src="more-marker.js"></script>
+    <script src="openwebrx.js"></script>
+    <script src="websdr.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
