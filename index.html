@@ -4,91 +4,167 @@
     <meta charset="UTF-8">
     <title>Shortwave Radio Map</title>
     <meta name="description" content="List of different worldwide shortwave radio receivers accessible via web interfaces.">
-    <meta viewport content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Shortwave Radio Map">
     <meta property="og:description" content="List of different worldwide shortwave radio receivers accessible via web interfaces.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="image/og-image.png">
     <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+
     <style>
+        /* === GALAXY FUTURISTIC STYLE === */
+
         body {
-            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 74%, #fdbb2d 100%);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #fff;
+            background: radial-gradient(circle at 20% 20%, #0b0f17 0%, #090d16 40%, #000000 100%);
+            color: #d4f1ff;
+            font-family: 'Roboto Mono', 'Consolas', monospace;
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 0;
+            overflow-x: hidden;
+            background-attachment: fixed;
         }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.15;
+            z-index: -1;
+            animation: starsMove 60s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        header {
+            background: linear-gradient(135deg, #0ff 0%, #007bff 50%, #5b00ff 100%);
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            box-shadow: 0 0 25px rgba(0, 153, 255, 0.6);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
         h1 {
-            text-shadow: 0 2px 8px #0008;
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            letter-spacing: 2px;
+            font-family: 'Orbitron', 'Roboto Mono', monospace;
+            text-shadow: 0 0 12px #00ffff, 0 0 20px #0044ff;
+            color: #b3e6ff;
+            margin-top: 0;
         }
-        .radio-links {
-            background: rgba(20, 30, 40, 0.85);
+
+        .antenna {
+            font-size: 2.5em;
+            margin-top: 1em;
+            filter: drop-shadow(0 2px 6px #00ffff);
+        }
+
+        .main-content {
+            max-width: 1000px;
+            margin: 3em auto;
+            background: rgba(10, 15, 25, 0.8);
             border-radius: 16px;
-            box-shadow: 0 4px 24px #0006;
-            padding: 2em 2.5em;
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.15), 0 0 80px rgba(255, 0, 255, 0.1);
+            padding: 2.5em;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .map-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+        }
+
+        .section {
             display: flex;
             flex-direction: column;
-            gap: 1.2em;
-            width: 320px;
-            max-width: 90vw;
+            gap: 0.8em;
         }
-        .radio-links a {
+
+        .section h4 {
+            font-size: 1.3em;
+            color: #00ffff;
+            margin-bottom: 0.5em;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 0.3em;
+            font-family: 'Orbitron';
+        }
+
+        .section a {
             text-decoration: none;
-            color: #fdbb2d;
-            background: #222a;
-            padding: 0.8em 1em;
+            color: #00ffff;
+            background: rgba(0, 30, 60, 0.5);
+            padding: 0.7em 1em;
             border-radius: 8px;
-            font-size: 1.15em;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
-            box-shadow: 0 2px 8px #0004;
-            letter-spacing: 1px;
+            font-size: 1em;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
         }
-        .radio-links a:hover {
-            background: #fdbb2d;
-            color: #1a2a6c;
+
+        .section a:hover {
+            background: linear-gradient(135deg, #ff00cc, #6600ff);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
         }
-        .antenna {
-            margin-bottom: 1.5em;
-            font-size: 2em;
-            filter: drop-shadow(0 2px 6px #0008);
+
+        footer {
+            background: #0a0f19;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 1.5em 0;
+            font-size: 0.9em;
+            margin-top: 3em;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 -2px 15px rgba(0, 255, 255, 0.1);
         }
-        .logo {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            z-index: 10;
-        }
-        .logo img {
-            width: 200px;
-            height: 100px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px #0006;
-            background: #fff2;
+
+        @media (max-width: 768px) {
+            .map-sections {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="logo">
-        <img src="image/og-image.png" alt="Shortwave Radio Logo" />
-    </div>
-    <div class="antenna">📡</div>
-    <h1>Shortwave Radio Map</h1>
-    <div class="radio-links">
-        <a href="kiwisdr.html">KiwiSDR (fetch from receiverbook.de)</a>
-        <a href="dyatlov/index.html">Dyatlov KiwiSDR</a>
-        <a href="openwebrx.html">OpenWebRX</a>
-        <a href="web888.html">Web888</a>
-        <a href="websdr.html">WebSDR</a>
-        <a href="phantomsdr.html">PhantomSDR</a>
-        <a href="airspy.html">Airspy Network</a>
-    </div>
+    <header>
+        <h1><span class="antenna">📡</span> Shortwave Radio Map</h1>
+        <p>Worldwide SDR networks and maps</p>
+    </header>
+
+    <main class="main-content">
+        <div class="map-sections">
+            <div class="section">
+                <h4>Our maps:</h4>
+                <a href="kiwisdr.html">KiwiSDR (receiverbook.de)</a>
+                <a href="dyatlov/index.html">Dyatlov KiwiSDR</a>
+                <a href="openwebrx.html">OpenWebRX</a>
+                <a href="web888.html">Web888</a>
+                <a href="websdr.html">WebSDR</a>
+                <a href="phantomsdr.html">PhantomSDR</a>
+                <a href="airspy.html">Airspy Network</a>
+            </div>
+
+            <div class="section">
+                <h4>Other external maps:</h4>
+                <a href="http://rx.linkfanel.net/">Linkfanel</a>
+                <a href="https://rx.skywavelinux.com/">SkywaveLinux</a>
+                <a href="https://rx-tx.info/map-sdr-points">RX-TX.info</a>
+                <a href="https://microtelecom.it/map/ServersMap.html">PerseusSDR map</a>
+                <a href="https://airspy.com/directory/">SpyServer (Airspy)</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Made by Discode Studio • Unaffiliated with KiwiSDR.com
+    </footer>
 </body>
 </html>
