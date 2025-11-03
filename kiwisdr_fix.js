@@ -21,11 +21,11 @@ function updateMarkers() {
     const [lon, lat] = site.location.coordinates;
 
     site.receivers.forEach(receiver => {
-      const iconUrl = 'https://kiwisdr.ch/wp-content/uploads/sites/2/2024/04/openwebrx-kiwisdr-ch_logo.png';
+      const iconUrl = 'https://lh6.googleusercontent.com/proxy/XxF3-F2dKSulH4ZiAXpaYOrdFEp4pu3wCFkxurZo0Z54YXztG-ExKFglO-OXXXvloNgzKDrKT06LSQCMaEap-iWHqny2V2NFbA';
 
       const customIcon = L.icon({
         iconUrl,
-        iconSize: [32, 32],
+        iconSize: [32, 48],
         iconAnchor: [16, 32],
         popupAnchor: [0, -32],
       });
