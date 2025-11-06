@@ -1,6 +1,6 @@
 async function kiwiload() {
     try {
-      const response = await fetch("https://api.kiwisdr.fr/proxy");
+      const response = await fetch("https://api.codetabs.com/v1/proxy/?quest=http://kiwisdr.com/.public/");
       const html = await response.text();
   
       // Crée un conteneur DOM temporaire pour parser le HTML
